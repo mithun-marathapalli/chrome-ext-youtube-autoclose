@@ -4,12 +4,12 @@
     "version": "1.0",
     "description": "Removes ads from youtube automatically",
     "action": {
-        "default_popup": "popup.html",
+        "default_popup": "popup/index.html",
         "default_icon": "icons/yt.png"
     },
     "content_scripts": [
         {
-            "js": "scripts/content.js",
+            "js": ["scripts/content.js"],
             "matches": ["https://www.youtube.com/watch?*"]
         }
     ]
