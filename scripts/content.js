@@ -12,7 +12,6 @@ function autoCloseAd() {
     adCloseJobRunning = true
 
     if (adCloseJob) {
-        adCloseJobRunning = false
         clearInterval(adCloseJob)
         adCloseJob = null
     }
@@ -26,6 +25,7 @@ function autoCloseAd() {
 
         if (!container) {
             adCloseJobRunning = false
+            startAdAutoClose()
             return
         }
 
@@ -54,12 +54,10 @@ function autoCloseAd() {
                     divEl.textContent.trim().toLowerCase() === "continue"
             )
 
-            console.log({ continueBtn })
-
             if (!continueBtn) {
                 adCloseJobRunning = false
-                clearInterval(adCloseJob)
-                adCloseJob = null
+                startAdAutoClose()
+                return
             }
             continueBtn.click && continueBtn.click()
 
@@ -69,13 +67,14 @@ function autoCloseAd() {
                 )
 
                 closeBtn.click && closeBtn.click()
+                adCloseJobRunning = false
+                startAdAutoClose()
             }, 500)
         }, 500)
     }, 3000)
 }
 
 function startAdAutoClose() {
-    console.log("Starting setinterval")
     if (!adCloseJobRunning) {
         adCloseJob = setInterval(autoCloseAd, 2000)
     }
