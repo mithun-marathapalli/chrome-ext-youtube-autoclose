@@ -9,6 +9,12 @@ function autoCloseAd() {
         return null
     }
 
+    let skipBtn = document.getElementsByClassName("ytp-skip-ad-button")
+    if (skipBtn) {
+        skipBtn = skipBtn?.[0]?.click()
+    }
+    // return
+
     adCloseJobRunning = true
 
     if (adCloseJob) {

@@ -1,8 +1,8 @@
 {
     "manifest_version": 3,
-    "name": "Youtube ad autoclose",
+    "name": "Skip ads automated",
     "version": "1.0",
-    "description": "Removes ads from youtube automatically",
+    "description": "For all lazy ashes. Sit and watch, we will skip those ads for you",
     "action": {
         "default_popup": "popup/index.html",
         "default_icon": "icons/yt.png"
